@@ -10,6 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as DecorationMethodsRouteImport } from './routes/decoration-methods'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as OurWorkRouteImport } from './routes/our-work'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
 import { Route as ProductsCategoryProductRouteImport } from './routes/products.$category.$product'
@@ -17,6 +23,36 @@ import { Route as ProductsCategoryProductRouteImport } from './routes/products.$
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecorationMethodsRoute = DecorationMethodsRouteImport.update({
+  id: '/decoration-methods',
+  path: '/decoration-methods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurWorkRoute = OurWorkRouteImport.update({
+  id: '/our-work',
+  path: '/our-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -37,12 +73,24 @@ const ProductsCategoryProductRoute = ProductsCategoryProductRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/decoration-methods': typeof DecorationMethodsRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-work': typeof OurWorkRoute
+  '/solutions': typeof SolutionsRoute
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
   '/products/$category/': typeof ProductsCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/decoration-methods': typeof DecorationMethodsRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-work': typeof OurWorkRoute
+  '/solutions': typeof SolutionsRoute
   '/products': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
   '/products/$category': typeof ProductsCategoryIndexRoute
@@ -50,6 +98,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/decoration-methods': typeof DecorationMethodsRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-work': typeof OurWorkRoute
+  '/solutions': typeof SolutionsRoute
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
   '/products/$category/': typeof ProductsCategoryIndexRoute
@@ -57,12 +111,37 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/products/' | '/products/$category/$product' | '/products/$category/'
+    | '/'
+    | '/about'
+    | '/decoration-methods'
+    | '/faq'
+    | '/how-it-works'
+    | '/our-work'
+    | '/solutions'
+    | '/products/'
+    | '/products/$category/$product'
+    | '/products/$category/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/products' | '/products/$category/$product' | '/products/$category'
+  to:
+    | '/'
+    | '/about'
+    | '/decoration-methods'
+    | '/faq'
+    | '/how-it-works'
+    | '/our-work'
+    | '/solutions'
+    | '/products'
+    | '/products/$category/$product'
+    | '/products/$category'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/decoration-methods'
+    | '/faq'
+    | '/how-it-works'
+    | '/our-work'
+    | '/solutions'
     | '/products/'
     | '/products/$category/$product'
     | '/products/$category/'
@@ -70,6 +149,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  DecorationMethodsRoute: typeof DecorationMethodsRoute
+  FaqRoute: typeof FaqRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  OurWorkRoute: typeof OurWorkRoute
+  SolutionsRoute: typeof SolutionsRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   ProductsCategoryProductRoute: typeof ProductsCategoryProductRoute
   ProductsCategoryIndexRoute: typeof ProductsCategoryIndexRoute
@@ -82,6 +167,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decoration-methods': {
+      id: '/decoration-methods'
+      path: '/decoration-methods'
+      fullPath: '/decoration-methods'
+      preLoaderRoute: typeof DecorationMethodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-work': {
+      id: '/our-work'
+      path: '/our-work'
+      fullPath: '/our-work'
+      preLoaderRoute: typeof OurWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -110,6 +237,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  DecorationMethodsRoute: DecorationMethodsRoute,
+  FaqRoute: FaqRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  OurWorkRoute: OurWorkRoute,
+  SolutionsRoute: SolutionsRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   ProductsCategoryProductRoute: ProductsCategoryProductRoute,
   ProductsCategoryIndexRoute: ProductsCategoryIndexRoute,
