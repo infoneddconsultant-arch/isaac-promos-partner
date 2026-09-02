@@ -169,6 +169,27 @@
   animation: reveal-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@utility field {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-input);
+  background-color: var(--color-background);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+  transition: border-color 200ms;
+
+  &::placeholder {
+    color: var(--color-muted-foreground);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
