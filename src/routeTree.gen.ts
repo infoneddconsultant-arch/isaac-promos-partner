@@ -16,6 +16,7 @@ import { Route as DecorationMethodsRouteImport } from './routes/decoration-metho
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OurWorkRouteImport } from './routes/our-work'
+import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
@@ -56,6 +57,11 @@ const OurWorkRoute = OurWorkRouteImport.update({
   path: '/our-work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuoteRoute = QuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-work': typeof OurWorkRoute
+  '/quote': typeof QuoteRoute
   '/solutions': typeof SolutionsRoute
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-work': typeof OurWorkRoute
+  '/quote': typeof QuoteRoute
   '/solutions': typeof SolutionsRoute
   '/products': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-work': typeof OurWorkRoute
+  '/quote': typeof QuoteRoute
   '/solutions': typeof SolutionsRoute
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/how-it-works'
     | '/our-work'
+    | '/quote'
     | '/solutions'
     | '/products/'
     | '/products/$category/$product'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/how-it-works'
     | '/our-work'
+    | '/quote'
     | '/solutions'
     | '/products'
     | '/products/$category/$product'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/how-it-works'
     | '/our-work'
+    | '/quote'
     | '/solutions'
     | '/products/'
     | '/products/$category/$product'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
   OurWorkRoute: typeof OurWorkRoute
+  QuoteRoute: typeof QuoteRoute
   SolutionsRoute: typeof SolutionsRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   ProductsCategoryProductRoute: typeof ProductsCategoryProductRoute
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OurWorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quote': {
+      id: '/quote'
+      path: '/quote'
+      fullPath: '/quote'
+      preLoaderRoute: typeof QuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
   OurWorkRoute: OurWorkRoute,
+  QuoteRoute: QuoteRoute,
   SolutionsRoute: SolutionsRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   ProductsCategoryProductRoute: ProductsCategoryProductRoute,
